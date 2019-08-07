@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group([ 'namespace' => 'Api', 'middleware' => 'api' ], function() {
+
+    Route::group([ 'prefix' => 'boards' ], function() {
+        Route::get('/{board}', 'Board\BoardController@get');
+    });;
 });
