@@ -30,6 +30,6 @@ class BoardRepository implements Repository
     {
         return Board::where('id', $boardId)
             ->with('columns', 'columns.tasks')
-            ->get();
+            ->first();
     }
 }

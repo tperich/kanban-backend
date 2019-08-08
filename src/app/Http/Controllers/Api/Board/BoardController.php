@@ -52,8 +52,6 @@ class BoardController extends Controller
 
         $all = $this->boardService->getAllById($id);
 
-        return response()->json([
-            'data' => $all
-        ]);
+        return response()->json($all);
     }
 }
