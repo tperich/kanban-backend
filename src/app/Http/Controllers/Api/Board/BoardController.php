@@ -22,7 +22,9 @@ class BoardController extends Controller
     }
 
     /**
-     * Returns board with columns and tasks
+     * Returns board 
+     * 
+     * @param Request $request
      * 
      * @return Response Json response
      */
@@ -34,6 +36,24 @@ class BoardController extends Controller
 
         return response()->json([
             'data' => $board
+        ]);
+    }
+
+    /**
+     * Returns board with tasks and columns
+     * 
+     * @param Request $request
+     * 
+     * @return Response Json response
+     */
+    public function getAll(Request $request)
+    {
+        $id = $request->route('board');
+
+        $all = $this->boardService->getAllById($id);
+
+        return response()->json([
+            'data' => $all
         ]);
     }
 }

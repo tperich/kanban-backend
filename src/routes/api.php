@@ -15,5 +15,6 @@ Route::group(['namespace' => 'Api', 'middleware' => 'api'], function () {
 
     Route::group(['prefix' => 'boards'], function () {
         Route::get('/{board}', 'Board\BoardController@get');
+        Route::get('/{board}/all', 'Board\BoardController@getAll');
     });;
 });

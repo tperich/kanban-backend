@@ -19,7 +19,7 @@ class BoardService
     }
 
     /**
-     * Returns board with columns and tasks by unique board id.
+     * Returns board by unique board id.
      * 
      * @param string $boardId board id.
      * 
@@ -30,6 +30,26 @@ class BoardService
     public function getBoardById(string $boardId)
     {
         $board = $this->boardRepository->getById($boardId);
+
+        if (!$board) {
+            throw new BoardNotFoundException();
+        }
+
+        return $board;
+    }
+
+    /**
+     * Returns board with columns and tasks by board id.
+     * 
+     * @param string $boardId board id.
+     * 
+     * @throws BoardNotFoundException if board is not found.
+     * 
+     * @return Board
+     */
+    public function getAllById(string $boardId)
+    {
+        $board = $this->boardRepository->getAllById($boardId);
 
         if (!$board) {
             throw new BoardNotFoundException();

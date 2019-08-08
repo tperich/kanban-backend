@@ -18,4 +18,18 @@ class BoardRepository implements Repository
     {
         return Board::where('id', $boardId)->first();
     }
+
+    /**
+     * Returns board with columns and tasks by id.
+     *
+     * @param string $boardId Board id.
+     *
+     * @return Board
+     */
+    public function getAllById(string $boardId)
+    {
+        return Board::where('id', $boardId)
+            ->with('columns', 'columns.tasks')
+            ->get();
+    }
 }
