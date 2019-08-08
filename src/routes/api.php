@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,9 +11,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group([ 'namespace' => 'Api', 'middleware' => 'api' ], function() {
+Route::group(['namespace' => 'Api', 'middleware' => 'api'], function () {
 
-    Route::group([ 'prefix' => 'boards' ], function() {
+    Route::group(['prefix' => 'boards'], function () {
         Route::get('/{board}', 'Board\BoardController@get');
     });;
 });
