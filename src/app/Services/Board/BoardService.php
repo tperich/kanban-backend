@@ -57,4 +57,25 @@ class BoardService
 
         return $board;
     }
+
+    /**
+     * Updates existing board
+     * 
+     * @param string $boardId board id.
+     * @param array $taskData new task data.
+     * 
+     * @throws BoardNotFoundException if board is not found.
+     * 
+     * @return Board
+     */
+    public function update(string $boardId, array $taskData)
+    {
+        $board = $this->boardRepository->update($boardId, $taskData);
+
+        if (!$board) {
+            throw new BoardNotFoundException();
+        }
+
+        return $board;
+    }
 }

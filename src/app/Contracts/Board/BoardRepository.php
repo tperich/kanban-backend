@@ -24,4 +24,14 @@ interface BoardRepository
      * @return Board
      */
     public function getAllById(string $boardId);
+
+    /**
+     * Updates existing board
+     * 
+     * @param string $boardId board id.
+     * @param array $taskData new task data.
+     * 
+     * @return Board
+     */
+    public function update(string $boardId, array $taskData);
 }

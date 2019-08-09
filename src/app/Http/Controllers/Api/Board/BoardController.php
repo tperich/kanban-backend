@@ -54,4 +54,23 @@ class BoardController extends Controller
 
         return response()->json($all);
     }
+
+    /**
+     * Updates existing board
+     * 
+     * @param Request $request
+     * 
+     * @return Response Json response
+     */
+    public function update(Request $request)
+    {
+        /**
+         * Only task data is applicable until column logic
+         * is implemented on frontend
+         */
+        $id = $request->route('board');
+        $taskData = $request->all();
+
+        return $this->boardService->update($id, $taskData);
+    }
 }
