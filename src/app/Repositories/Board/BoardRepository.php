@@ -9,7 +9,7 @@ use App\Contracts\Board\BoardRepository as Repository;
 class BoardRepository implements Repository
 {
     /**
-     * Returns board by id.
+     * Returns a board by id.
      *
      * @param string $boardId board id.
      *
@@ -21,7 +21,7 @@ class BoardRepository implements Repository
     }
 
     /**
-     * Returns board with columns and tasks by id.
+     * Returns a board with columns and tasks by id.
      *
      * @param string $boardId board id.
      *
@@ -35,7 +35,7 @@ class BoardRepository implements Repository
     }
 
     /**
-     * Updates existing board
+     * Updates an existing board
      * 
      * @param string $boardId board id.
      * @param array $taskData new task data.

@@ -22,7 +22,7 @@ class BoardController extends Controller
     }
 
     /**
-     * Returns board 
+     * Returns a board 
      * 
      * @param Request $request
      * 

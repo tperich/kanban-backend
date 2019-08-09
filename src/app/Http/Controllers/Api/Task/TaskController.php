@@ -22,7 +22,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Add new task
+     * Adds a new task
      * 
      * @param Request $request
      * 
@@ -41,5 +41,20 @@ class TaskController extends Controller
         $board = $this->taskService->addTask($boardId, $columnId, $taskData);
 
         return response()->json($board);
+    }
+
+    /**
+     * Deletes a task
+     * 
+     * @param Request $request
+     * 
+     * @return Resposne Json response
+     */
+    public function deleteTask(Request $request)
+    {
+        $taskId = $request->task_id;
+        $boardId = $request->route('board');
+
+        return $this->taskService->deleteTask($boardId, $taskId);
     }
 }

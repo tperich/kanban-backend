@@ -7,7 +7,7 @@ use App\Models\Board\Board;
 interface BoardRepository
 {
     /**
-     * Returns board by id.
+     * Returns a board by id.
      *
      * @param string $boardId board id.
      *
@@ -17,7 +17,7 @@ interface BoardRepository
 
 
     /**
-     * Returns board with columns and tasks by id.
+     * Returns a board with columns and tasks by id.
      * 
      * @param string $boardId board id.
      * 
@@ -26,7 +26,7 @@ interface BoardRepository
     public function getAllById(string $boardId);
 
     /**
-     * Updates existing board
+     * Updates an existing board
      * 
      * @param string $boardId board id.
      * @param array $taskData new task data.

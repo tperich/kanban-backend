@@ -18,6 +18,7 @@ Route::group(['namespace' => 'Api', 'middleware' => 'api'], function () {
         Route::get('/{board}/all', 'Board\BoardController@getAll');
         Route::post('/{board}', 'Board\BoardController@update');
 
-        Route::post('/{board}/task', 'Task\TaskController@addTask');
+        Route::post('/{board}/task/new', 'Task\TaskController@addTask');
+        Route::post('/{board}/task/delete', 'Task\TaskController@deleteTask');
     });;
 });
