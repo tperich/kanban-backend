@@ -18,4 +18,11 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test2()
+    {
+        $response = $this->get('/api/boards/1/all');
+
+        $response->assertStatus(200);
+    }
 }

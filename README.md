@@ -4,6 +4,6 @@
 - Ports 3306 (mariadb) and 8000 (laravel) should be free
 
 1. Run `docker-compose up -d`
-2. Run `docker exec -it kanban-laravel php artisan migrate --seed` to migrate and seed the database
+2. Run `docker exec kanban-laravel ./vendor/bin/phpunit` to run tests
 
 The api should now be live at `http://localhost:8000`
