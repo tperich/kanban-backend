@@ -6,4 +6,10 @@
 1. Run `docker-compose up -d`
 2. Run `docker exec kanban-laravel ./vendor/bin/phpunit` to run tests
 
-The api should now be live at `http://localhost:8000`
+Additional info:
+
+- If you encounter `permission denied` to storage while opening localhost:800 in browser,
+  run `docker exec kanban-laravel chown -R www-data:www-data /app` to fix the problem.
+
+- Run `docker exec kanban-laravel php artisan migrate --database=mysql_testing` to migrate
+  and seed the test DB.
