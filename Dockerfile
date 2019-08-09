@@ -10,6 +10,8 @@ WORKDIR /app
 COPY ./src /app
 
 # Install dependencies
-RUN composer install --no-dev --no-scripts
+RUN composer install
 RUN chown -R www-data:www-data /app/storage
 RUN chown -R www-data:www-data /app/bootstrap/cache
+RUN echo "Migrating database..."
+RUN php artisan migrate:fresh --seed
