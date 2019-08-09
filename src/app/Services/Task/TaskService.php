@@ -24,12 +24,12 @@ class TaskService
      * @param string $columnId column id
      * @param array $taskData new task
      * 
-     * @return Task
+     * @return Board
      */
     public function addTask(string $boardId, string $columnId, array $taskData)
     {
-        $task = $this->taskRepository->addTask($boardId, $columnId, $taskData);
+        $board = $this->taskRepository->addTask($boardId, $columnId, $taskData);
 
-        return $task;
+        return $board;
     }
 }

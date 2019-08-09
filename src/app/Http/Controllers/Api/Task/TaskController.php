@@ -38,8 +38,8 @@ class TaskController extends Controller
             'description' => $request->desc,
         ];
 
-        $task = $this->taskService->addTask($boardId, $columnId, $taskData);
+        $board = $this->taskService->addTask($boardId, $columnId, $taskData);
 
-        return response()->json($task);
+        return response()->json($board);
     }
 }

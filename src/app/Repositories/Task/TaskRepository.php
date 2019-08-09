@@ -5,6 +5,7 @@ namespace App\Repositories\Task;
 use App\Models\Task\Task;
 use App\Models\Board\Board;
 use App\Models\Column\Column;
+use App\Exceptions\Board\BoardNotFoundException;
 use App\Exceptions\Column\ColumnNotFoundException;
 use App\Contracts\Task\TaskRepository as Repository;
 
@@ -17,7 +18,7 @@ class TaskRepository implements Repository
      * @param string $columnId column id
      * @param array new task
      * 
-     * @return Task
+     * @return Board
      */
     public function addTask(string $boardId, string $columnId, array $taskData)
     {
@@ -28,12 +29,17 @@ class TaskRepository implements Repository
         }
 
         $task = new Task;
-
         $task->title = $taskData['title'];
         $task->column_id = $columnId;
         $task->description = $taskData['description'];
-
         $task->save();
-        return $task;
+
+        $board = Board::where('id', $boardId)->with('columns', 'columns.tasks')->first();
+
+        if (!$board) {
+            throw new BoardNotFoundException();
+        }
+
+        return $board;
     }
 }

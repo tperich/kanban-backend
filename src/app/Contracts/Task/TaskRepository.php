@@ -2,8 +2,6 @@
 
 namespace App\Contracts\Task;
 
-use App\Models\Task\Task;
-
 interface TaskRepository
 {
     /**
@@ -13,7 +11,7 @@ interface TaskRepository
      * @param string $columnId column id
      * @param array new task
      * 
-     * @return Task
+     * @return Board
      */
     public function addTask(string $boardId, string $columnId, array $taskData);
 }
